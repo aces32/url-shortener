@@ -10,6 +10,10 @@ on:
     paths:
       - 'infrastructure/**'
   workflow_dispatch:
+  
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build:
@@ -33,8 +37,8 @@ jobs:
             echo "Azure resource group created"
 
       - name: Deploy
-        uses: azure/arm-deploy@v1
+        uses: azure/arm-deploy@v2
         with:
-          resource-group: ${{ vars.RESOURCE_GROUP_NAME }}
-          template: ./infrastructure/main.bicep
+        resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
+        template: ./infrastructure/main.bicep
 
