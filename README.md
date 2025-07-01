@@ -39,3 +39,8 @@ az ad sp create-for-rbac `
 
 #### Configure a federated identity credential on an app
 https://learn.microsoft.com/en-gb/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#configure-a-federated-identity-credential-on-an-app
+
+### Get Azure Publish Profile
+```bash
+az webapp deployment list-publishing-profiles --name api-r6hdzf62s5jdi --resource-group urlshortener-dev --xml
+```
