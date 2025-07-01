@@ -46,13 +46,12 @@ jobs:
           name: .net-app
 
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ vars.API_RESOURCE_NAME }}
-          # slot-name: 'Production'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_API_PUBLISH_PROFILE }}
-          package: ./publish
-
+          package: ./publish       
 
   # deploy-stg:
   #   runs-on: ubuntu-latest
